@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+
+</head>
+<body>
+    <header>
+        <h1>Stoks</h1>
+        <h3>Um gerenciamento para seu negocio!</h3>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="produtos.html">Produtos</a></li>
+                <li><a href="clientes.html">Clientes</a></li>
+                <li><a href="estoque.html">Estoque</a></li>
+                <li><a href="financeiro.html">Financeiro</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+
+    </header>
+    <main>
+        <h1>Bem-vindo, {{ current_user.username }}!</h1>
+        <p>Você está logado.</p>
+        
+        <a href="{{ url_for('logout') }}">
+            <button>Sair</button>
+        </a>
+        
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+              {% for message in messages %}
+                <li style="color: green;">{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+        
+    </main>
+    <footer>
+        <p>&copy; 2025 Gerenciador. Todos os direitos reservados.</p>
+        <p>Desenvolvido por prts_zz</p>
+    </footer>
+</body>
+</html>
